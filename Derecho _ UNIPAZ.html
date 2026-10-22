@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Derecho | UNIPAZ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--p:#4c1d95;--p2:#5b21b6;--pl:#7c3aed;--ind:#312e81;--gold:#d4a017;--gold2:#f2c94c;--bg:#f5f4f8;--card:#fff;--tx:#1f1b2e;--mut:#5f5a73;--bd:#e7e3f1;--sh:0 6px 24px rgba(76,29,149,.10);--sh2:0 14px 36px rgba(76,29,149,.20);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#120d22;--card:#1c1533;--tx:#efeafc;--mut:#b4acd0;--bd:#33284f;--sh:0 6px 24px rgba(0,0,0,.4);--sh2:0 14px 36px rgba(0,0,0,.55);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#120d22;--card:#1c1533;--tx:#efeafc;--mut:#b4acd0;--bd:#33284f;--sh:0 6px 24px rgba(0,0,0,.4);--sh2:0 14px 36px rgba(0,0,0,.55);color-scheme:dark}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(80px + env(safe-area-inset-top,0px))}
+body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--tx);line-height:1.65}
+h1,h2,h3{font-family:"Playfair Display",Georgia,serif;line-height:1.2;margin:0}
+a{color:inherit;text-decoration:none}
+.ic{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+section{padding:80px 0}
+.eyebrow{color:var(--pl);font-weight:700;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase}
+.title{font-size:clamp(1.7rem,4vw,2.4rem);margin:8px 0 12px;color:var(--p)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .title{color:#d8c9ff}}
+.lead{color:var(--mut);max-width:680px;margin:0 0 40px}
+.gline{width:56px;height:4px;border-radius:4px;background:linear-gradient(90deg,var(--gold),var(--gold2));margin-bottom:18px}
+/* nav */
+header{position:sticky;top:0;z-index:50;background:rgba(49,19,100,.94);backdrop-filter:blur(10px);color:#fff;padding-top:env(safe-area-inset-top,0px)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px;gap:16px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700}
+.logo .ic{width:30px;height:30px;color:var(--gold2)}
+.logo small{display:block;font-weight:500;font-size:.7rem;opacity:.8;letter-spacing:.05em}
+nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;font-size:.92rem}
+nav a{opacity:.88;transition:.2s}nav a:hover{opacity:1;color:var(--gold2)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:999px;font-weight:600;font-size:.92rem;transition:.25s;border:0;cursor:pointer}
+.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#2b1b00}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(212,160,23,.4)}
+.btn-ghost{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.3)}
+.btn-ghost:hover{background:rgba(255,255,255,.22)}
+.burger{display:none;background:none;border:0;color:#fff;cursor:pointer;padding:6px}
+.burger .ic{width:28px;height:28px}
+@media(max-width:960px){
+ .burger{display:block}
+ .cta-nav{display:none}
+ nav{position:absolute;left:0;right:0;top:100%;background:#2a1260;max-height:0;overflow:hidden;transition:max-height .3s}
+ nav.open{max-height:480px}
+ nav ul{flex-direction:column;padding:12px 20px 20px;gap:14px}
+ nav .btn{margin:0 20px 20px}
+}
+@media(min-width:961px){nav .mob{display:none}}
+/* hero */
+.hero{background:radial-gradient(circle at 80% 10%,rgba(124,58,237,.55),transparent 45%),linear-gradient(140deg,#2a1260,#4c1d95 55%,#312e81);color:#fff;padding:96px 0 120px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-80px;bottom:-80px;width:360px;height:360px;border-radius:50%;border:2px solid rgba(242,201,76,.25)}
+.badge{display:inline-flex;gap:8px;align-items:center;background:rgba(242,201,76,.15);color:var(--gold2);border:1px solid rgba(242,201,76,.4);padding:6px 14px;border-radius:999px;font-size:.82rem;font-weight:600}
+.hero h1{font-size:clamp(2.2rem,6vw,4rem);margin:20px 0 16px;max-width:820px}
+.hero h1 span{color:var(--gold2)}
+.hero p{max-width:640px;font-size:1.08rem;opacity:.92;margin:0 0 28px}
+.hero .acts{display:flex;gap:12px;flex-wrap:wrap}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:-64px;position:relative;z-index:2}
+.stat{background:var(--card);border-radius:18px;padding:22px 18px;text-align:center;box-shadow:var(--sh2);border:1px solid var(--bd);transition:.3s}
+.stat:hover{transform:translateY(-6px)}
+.stat .ic{width:28px;height:28px;color:var(--pl)}
+.stat b{display:block;font-size:1.35rem;font-family:"Playfair Display",serif;margin-top:6px}
+.stat span{color:var(--mut);font-size:.85rem}
+@media(max-width:800px){.stats{grid-template-columns:repeat(2,1fr)}}
+/* cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:18px;padding:24px;box-shadow:var(--sh);transition:.3s}
+.card:hover{transform:translateY(-6px);box-shadow:var(--sh2)}
+.card .ico{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(135deg,var(--p2),var(--pl));color:#fff;margin-bottom:14px}
+.card h3{font-size:.78rem;font-family:Inter,sans-serif;text-transform:uppercase;letter-spacing:.1em;color:var(--mut);font-weight:600;margin-bottom:4px}
+.card p{margin:0;font-weight:600;font-size:1.05rem}
+/* tabs */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.tab{padding:11px 20px;border-radius:999px;border:1px solid var(--bd);background:var(--card);color:var(--tx);font:600 .92rem Inter,sans-serif;cursor:pointer;display:inline-flex;gap:8px;align-items:center;transition:.2s}
+.tab[aria-selected="true"]{background:var(--p2);color:#fff;border-color:var(--p2);box-shadow:var(--sh)}
+.panel{display:none;animation:in .4s}.panel.on{display:block}
+@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.quote{background:linear-gradient(135deg,rgba(124,58,237,.10),rgba(212,160,23,.12));border-left:5px solid var(--gold);border-radius:18px;padding:32px;font-size:1.1rem}
+.quote .ic{width:34px;height:34px;color:var(--gold)}
+.quote p{margin:10px 0 0}
+.chips{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-bottom:22px}
+.chip{display:flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px;box-shadow:var(--sh);transition:.25s}
+.chip:hover{transform:translateY(-4px);border-color:var(--pl)}
+.chip .ic{color:var(--pl);margin-top:3px}
+.vals{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.vals span{background:var(--p2);color:#fff;border-radius:999px;padding:6px 14px;font-size:.85rem;font-weight:600}
+/* coord */
+.coord{display:grid;grid-template-columns:1fr;gap:32px;align-items:center;background:linear-gradient(135deg,#2a1260,#4c1d95);color:#fff;border-radius:26px;padding:40px;box-shadow:var(--sh2)}
+.avatar{width:140px;height:140px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#2b1b00;font:700 2.6rem "Playfair Display",serif;border:6px solid rgba(255,255,255,.2)}
+.coord h3{font-size:1.7rem}
+.role{color:var(--gold2);font-weight:600;margin:4px 0 14px}
+.coord ul{list-style:none;padding:0;margin:0 0 18px;display:grid;gap:6px}
+.coord li{display:flex;gap:10px;align-items:center}
+.coord li .ic{color:var(--gold2)}
+.cl{display:flex;gap:10px;flex-wrap:wrap}
+@media(max-width:700px){.coord{grid-template-columns:1fr;text-align:center;padding:28px}.avatar{margin:auto}.coord li,.cl{justify-content:center}}
+/* quick */
+.quick a{display:flex;align-items:center;gap:14px;font-weight:600}
+.quick a .ico{margin:0}
+.quick a em{margin-left:auto;font-style:normal;color:var(--pl)}
+/* faq */
+details{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:4px 20px;margin-bottom:12px;box-shadow:var(--sh)}
+summary{cursor:pointer;font-weight:600;padding:14px 0;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::after{content:"+";color:var(--pl);font-size:1.4rem;line-height:1}
+details[open] summary::after{content:"–"}
+details p{margin:0 0 16px;color:var(--mut)}
+/* footer */
+footer{background:#1d0f42;color:#e9e3fa;padding:64px 0 0}
+.fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:36px}
+footer h4{font-family:"Playfair Display",serif;color:var(--gold2);font-size:1.15rem;margin:0 0 14px}
+footer ul{list-style:none;padding:0;margin:0;display:grid;gap:10px;font-size:.92rem}
+footer li{display:flex;gap:10px;align-items:flex-start}
+footer li .ic{color:var(--gold2);margin-top:3px}
+footer a:hover{color:var(--gold2)}
+.copy{border-top:1px solid rgba(255,255,255,.12);margin-top:44px;padding:20px 0 calc(20px + env(safe-area-inset-bottom,0px));font-size:.82rem;opacity:.8;text-align:center}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="i-scale" viewBox="0 0 24 24"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10M12 3v18M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></symbol>
+<symbol id="i-case" viewBox="0 0 24 24"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect x="2" y="6" width="20" height="14" rx="2"/></symbol>
+<symbol id="i-book" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></symbol>
+<symbol id="i-cap" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+<symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></symbol>
+<symbol id="i-bld" viewBox="0 0 24 24"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6M9 10h.01M15 10h.01"/></symbol>
+<symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></symbol>
+<symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></symbol>
+<symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h8"/></symbol>
+<symbol id="i-users" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></symbol>
+<symbol id="i-hash" viewBox="0 0 24 24"><path d="M4 9h16M4 15h16M10 3 8 21M16 3l-2 18"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></symbol>
+<symbol id="i-quote" viewBox="0 0 24 24"><path d="M3 21c3 0 7-1 7-8V5H3v8h4c0 3-2 4-4 4zM14 21c3 0 7-1 7-8V5h-7v8h4c0 3-2 4-4 4z"/></symbol>
+<symbol id="i-chk" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></symbol>
+<symbol id="i-link" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></symbol>
+</svg>
+
+<header>
+ <div class="wrap nav">
+  <a href="#inicio" class="logo"><svg class="ic"><use href="#i-scale"/></svg><span>UNIPAZ | Programa de Derecho<small>Instituto Universitario de la Paz</small></span></a>
+  <nav id="nav">
+   <ul>
+    <li><a href="#inicio">Inicio</a></li><li><a href="#general">Información General</a></li><li><a href="#perfiles">Perfiles</a></li><li><a href="#coordinacion">Coordinación</a></li><li><a href="#faq">Preguntas Frecuentes</a></li><li><a href="#contacto">Contacto</a></li>
+   </ul>
+   <a class="btn btn-gold mob" href="https://www.unipaz.edu.co" target="_blank" rel="noopener">Ir al Portal Académico</a>
+  </nav>
+  <a class="btn btn-gold cta-nav" href="https://www.unipaz.edu.co" target="_blank" rel="noopener"><svg class="ic"><use href="#i-cap"/></svg>Ir al Portal Académico</a>
+  <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false"><svg class="ic"><use href="#i-menu"/></svg></button>
+ </div>
+</header>
+
+<main>
+<section class="hero" id="inicio" style="padding-bottom:120px">
+ <div class="wrap">
+  <span class="badge"><svg class="ic"><use href="#i-hash"/></svg>SNIES 117530 · Resolución No. 025528 de 2024</span>
+  <h1>Forma tu vocación por la <span>justicia</span> y el Estado Social de Derecho</h1>
+  <p>Programa profesional de pregrado que otorga el título de <b>Abogado(a)</b>, con formación jurídica sólida, humanista, crítica e investigativa en Barrancabermeja, Santander.</p>
+  <div class="acts">
+   <a class="btn btn-gold" href="#general"><svg class="ic"><use href="#i-book"/></svg>Conocer el programa</a>
+   <a class="btn btn-ghost" href="#contacto"><svg class="ic"><use href="#i-mail"/></svg>Contáctanos</a>
+  </div>
+ </div>
+</section>
+
+<div class="wrap" style="padding-top:0">
+ <div class="stats">
+  <div class="stat"><svg class="ic"><use href="#i-cal"/></svg><b>9</b><span>Semestres</span></div>
+  <div class="stat"><svg class="ic"><use href="#i-book"/></svg><b>165</b><span>Créditos</span></div>
+  <div class="stat"><svg class="ic"><use href="#i-clock"/></svg><b>Presencial</b><span>Horario diurno</span></div>
+  <div class="stat"><svg class="ic"><use href="#i-pin"/></svg><b>Barrancabermeja</b><span>Santander</span></div>
+ </div>
+</div>
+
+<section id="general">
+ <div class="wrap">
+  <div class="gline"></div><span class="eyebrow">Ficha técnica</span>
+  <h2 class="title">Información General del Programa</h2>
+  <p class="lead">Los datos esenciales del programa de Derecho de UNIPAZ, adscrito a la Escuela de Ciencias Sociales y de las Comunicaciones.</p>
+  <div class="grid">
+   <div class="card"><div class="ico"><svg class="ic"><use href="#i-cap"/></svg></div><h3>Nivel</h3><p>Profesional – Pregrado</p></div>
+   <div class="card"><div class="ico"><svg class="ic"><use href="#i-scale"/></svg></div><h3>Título otorgado</h3><p>Abogado(a)</p></div>
+   <div class="card"><div class="ico"><svg class="ic"><use href="#i-hash"/></svg></div><h3>Código SNIES</h3><p>117530</p></div>
+   <div class="card"><div class="ico"><svg class="ic"><use href="#i-cal"/></svg></div><h3>Año de creación</h3><p>2024</p></div>
+   <div class="card"><div class="ico"><svg class="ic"><use href="#i-file"/></svg></div><h3>Resolución</h3><p>No. 025528 del 27 de diciembre de 2024</p></div>
+   <div class="card"><div class="ico"><svg class="ic"><use href="#i-users"/></svg></div><h3>Escuela</h3><p>Ciencias Sociales y de las Comunicaciones</p></div>
+   <div class="card"><div class="ico"><svg class="ic"><use href="#i-book"/></svg></div><h3>Duración y créditos</h3><p>9 Semestres / 165 Créditos</p></div>
+   <div class="card"><div class="ico"><svg class="ic"><use href="#i-pin"/></svg></div><h3>Modalidad y sede</h3><p>Presencial horario diurno | Barrancabermeja, Santander</p></div>
+  </div>
+ </div>
+</section>
+
+<section id="perfiles" style="background:var(--card)">
+ <div class="wrap">
+  <div class="gline"></div><span class="eyebrow">Perfiles</span>
+  <h2 class="title">¿Qué abogado(a) formamos?</h2>
+  <p class="lead">Explora el perfil profesional, las oportunidades ocupacionales y las cualidades del egresado.</p>
+  <div class="tabs" role="tablist">
+   <button class="tab" role="tab" aria-selected="true" data-t="p1"><svg class="ic"><use href="#i-scale"/></svg>Perfil Profesional</button>
+   <button class="tab" role="tab" aria-selected="false" data-t="p2"><svg class="ic"><use href="#i-case"/></svg>Perfil Ocupacional</button>
+   <button class="tab" role="tab" aria-selected="false" data-t="p3"><svg class="ic"><use href="#i-cap"/></svg>Perfil del Egresado</button>
+  </div>
+
+  <div class="panel on" id="p1">
+   <div class="quote"><svg class="ic"><use href="#i-quote"/></svg>
+    <p>El Abogado de UNIPAZ será un conocedor de la Legislación Nacional y de las herramientas conceptuales que le permitan ejercer eficazmente su profesión, dotado de un pensamiento crítico, con sensibilidad social y política; capaz de generar y apropiarse de los saberes científicos y tecnológicos, modernos, fundamentado en la ética de la responsabilidad y la honestidad mediada por el respeto a la diferencia, el diálogo y el pluralismo comprometido con la defensa del Estado Social y Democrático de Derecho.</p></div>
+   <div class="vals"><span>Pensamiento crítico</span><span>Ética de la responsabilidad</span><span>Honestidad</span><span>Pluralismo</span><span>Estado Social y Democrático de Derecho</span></div>
+  </div>
+
+  <div class="panel" id="p2">
+   <p class="lead" style="margin-bottom:22px">Los profesionales del Derecho egresados de UNIPAZ tendrán las competencias para desempeñarse en instituciones públicas y privadas, como abogados litigantes, operadores judiciales, gestores de políticas públicas y asesores o consultores, en los siguientes escenarios, entre otros:</p>
+   <div class="chips">
+    <div class="chip"><svg class="ic"><use href="#i-scale"/></svg><span><b>Rama Judicial y entes de control</b><br>Funcionario o contratista de los órganos de la Rama Judicial y los entes de control.</span></div>
+    <div class="chip"><svg class="ic"><use href="#i-users"/></svg><span><b>Conciliador / Árbitro</b><br>Centros de conciliación y arbitraje y del Ministerio del Trabajo.</span></div>
+    <div class="chip"><svg class="ic"><use href="#i-bld"/></svg><span><b>Administración pública</b><br>Funcionario, asesor y consultor en entidades de todos los órdenes territoriales.</span></div>
+    <div class="chip"><svg class="ic"><use href="#i-case"/></svg><span><b>Sector privado y ONG</b><br>Sociedades, asociaciones y organizaciones con y sin ánimo de lucro: sindicatos, cooperativas, ONG, fundaciones y corporaciones.</span></div>
+    <div class="chip"><svg class="ic"><use href="#i-book"/></svg><span><b>Docencia e investigación</b><br>Docencia y la investigación jurídica.</span></div>
+   </div>
+  </div>
+
+  <div class="panel" id="p3">
+   <div class="quote"><svg class="ic"><use href="#i-quote"/></svg>
+    <p>El egresado del programa de Derecho de UNIPAZ será un profesional con sólida formación jurídica, humanista, con capacidad investigativa, crítico e innovador, con habilidades en el análisis, interpretación y creación en el campo del derecho, con plena conciencia del papel mediador y facilitador que cumple en la resolución de conflictos y, en especial, comprometido con los principios del Estado Social de Derecho, la democracia incluyente, unido al convencimiento de recuperar la confianza social en las instituciones y en el Derecho, a través de la prestación eficiente de sus servicios profesionales en las ramas del poder público, en el sector privado y/o ejerciendo su profesión con ética, responsabilidad y decoro.</p></div>
+   <div class="vals"><span>Formación humanista</span><span>Capacidad investigativa</span><span>Innovación</span><span>Mediación de conflictos</span><span>Democracia incluyente</span><span>Ética y decoro</span></div>
+  </div>
+ </div>
+</section>
+
+<section id="coordinacion">
+ <div class="wrap">
+  <div class="gline"></div><span class="eyebrow">Coordinación</span>
+  <h2 class="title">Coordinación Académica</h2>
+  <p class="lead">Contacto directo con quien lidera el programa.</p>
+  <div class="coord">
+   <div>
+    <h3>Vivian Amparo Mercado Arroyo</h3>
+    <div class="role">Coordinadora Académica</div>
+    <ul>
+     <li><svg class="ic"><use href="#i-cap"/></svg>Abogada Especialista en Derecho Administrativo</li>
+     <li><svg class="ic"><use href="#i-cap"/></svg>Magíster en Derechos Humanos: Sistemas de Protección</li>
+    </ul>
+    <div class="cl">
+     <a class="btn btn-gold" href="mailto:derecho@unipaz.edu.co"><svg class="ic"><use href="#i-mail"/></svg>derecho@unipaz.edu.co</a>
+     <a class="btn btn-ghost" href="tel:+576076118210"><svg class="ic"><use href="#i-phone"/></svg>607 - 6118210 Ext: 116</a>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section style="background:var(--card)" id="accesos">
+ <div class="wrap">
+  <div class="gline"></div><span class="eyebrow">Accesos rápidos</span>
+  <h2 class="title">Enlaces útiles</h2>
+  <p class="lead">Consulta la información académica del programa en el portal institucional.</p>
+  <div class="grid quick">
+   <a class="card" href="https://www.unipaz.edu.co" target="_blank" rel="noopener"><div style="display:flex;align-items:center;gap:14px"><div class="ico" style="margin:0"><svg class="ic"><use href="#i-book"/></svg></div>Plan de Estudios / Malla Curricular<em><svg class="ic"><use href="#i-link"/></svg></em></div></a>
+   <a class="card" href="https://www.unipaz.edu.co" target="_blank" rel="noopener"><div style="display:flex;align-items:center;gap:14px"><div class="ico" style="margin:0"><svg class="ic"><use href="#i-cal"/></svg></div>Calendario Académico y Horario de clases<em><svg class="ic"><use href="#i-link"/></svg></em></div></a>
+   <a class="card" href="https://www.unipaz.edu.co" target="_blank" rel="noopener"><div style="display:flex;align-items:center;gap:14px"><div class="ico" style="margin:0"><svg class="ic"><use href="#i-file"/></svg></div>Derechos Pecuniarios y Portal Académico<em><svg class="ic"><use href="#i-link"/></svg></em></div></a>
+  </div>
+ </div>
+</section>
+
+<section id="faq">
+ <div class="wrap" style="max-width:820px">
+  <div class="gline"></div><span class="eyebrow">Preguntas frecuentes</span>
+  <h2 class="title">Resolvemos tus dudas</h2>
+  <p class="lead">Respuestas basadas en la información oficial del programa.</p>
+  <details open><summary>¿Qué título se obtiene al finalizar?</summary><p>El título de Abogado(a), en un programa profesional de pregrado.</p></details>
+  <details><summary>¿Cuánto dura el programa y cuántos créditos tiene?</summary><p>Dura 9 semestres y tiene un total de 165 créditos.</p></details>
+  <details><summary>¿Cuál es la modalidad y dónde se ofrece?</summary><p>Es presencial en horario diurno y se ofrece en Barrancabermeja, Santander.</p></details>
+  <details><summary>¿Cuál es el registro oficial del programa?</summary><p>Código SNIES 117530, creado en 2024 mediante la Resolución No. 025528 del 27 de diciembre de 2024.</p></details>
+  <details><summary>¿Dónde puedo consultar el plan de estudios, calendario y horarios?</summary><p>En el portal institucional, a través de los accesos a Plan de estudios, Calendario académico, Horario de clases, Malla curricular, Derechos pecuniarios y Portal académico.</p></details>
+  <details><summary>¿A quién puedo escribir para más información?</summary><p>A la coordinación del programa: derecho@unipaz.edu.co o al teléfono 607 - 6118210 Ext: 116.</p></details>
+ </div>
+</section>
+</main>
+
+<footer id="contacto">
+ <div class="wrap">
+  <div class="fg">
+   <div>
+    <h4>UNIPAZ | Derecho</h4>
+    <ul>
+     <li><svg class="ic"><use href="#i-bld"/></svg>Instituto Universitario de la Paz – UNIPAZ (Institución de Educación Superior)</li>
+     <li><svg class="ic"><use href="#i-pin"/></svg>Centro de Investigaciones Santa Lucía Km 14 vía Barrancabermeja – Bucaramanga – Santander</li>
+     <li><svg class="ic"><use href="#i-pin"/></svg>Punto presencial: Edificio Administrativo – Primer piso</li>
+    </ul>
+   </div>
+   <div>
+    <h4>Horarios de atención</h4>
+    <ul>
+     <li><svg class="ic"><use href="#i-clock"/></svg>Lunes a Jueves: 7:00 am – 12:00 m / 1:00 pm – 5:00 pm</li>
+     <li><svg class="ic"><use href="#i-clock"/></svg>Viernes: 7:00 am – 12:00 m / 1:00 pm – 4:00 pm</li>
+     <li><svg class="ic"><use href="#i-mail"/></svg><a href="mailto:atencionalciudadano@unipaz.edu.co">atencionalciudadano@unipaz.edu.co</a></li>
+     <li><svg class="ic"><use href="#i-mail"/></svg><a href="mailto:notificacionesjudiciales@unipaz.edu.co">notificacionesjudiciales@unipaz.edu.co</a></li>
+    </ul>
+   </div>
+   <div>
+    <h4>Líneas de atención</h4>
+    <ul>
+     <li><svg class="ic"><use href="#i-phone"/></svg>Atención ciudadana: (607) 6118210 Ext. 101</li>
+     <li><svg class="ic"><use href="#i-shield"/></svg>Línea anticorrupción: (607) 6118210 Ext. 122 / Ext. 139</li>
+     <li><svg class="ic"><use href="#i-heart"/></svg>Oficina Bienestar: (607) 6118210 Ext. 131 | Celular: 322 270 3665 / 311 672 9577</li>
+     <li><svg class="ic"><use href="#i-file"/></svg>Oficina Registro y Control: (607) 6118210 Ext. 152</li>
+     <li><svg class="ic"><use href="#i-phone"/></svg>Programa de Derecho: 607 - 6118210 Ext: 116</li>
+    </ul>
+   </div>
+  </div>
+  <div class="copy">© 2026 Instituto Universitario de la Paz – UNIPAZ. Todos los derechos reservados.</div>
+ </div>
+</footer>
+
+<script>
+(function(){
+ var b=document.getElementById('burger'),n=document.getElementById('nav');
+ b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+ n.addEventListener('click',function(e){if(e.target.closest('a'))n.classList.remove('open')});
+ var tabs=document.querySelectorAll('.tab');
+ tabs.forEach(function(t){t.addEventListener('click',function(){
+  tabs.forEach(function(x){x.setAttribute('aria-selected',x===t)});
+  document.querySelectorAll('.panel').forEach(function(p){p.classList.toggle('on',p.id===t.dataset.t)});
+ })});
+})();
+</script>
+</body>
+</html>
